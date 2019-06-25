@@ -52,6 +52,24 @@ if (first_run == TRUE){
   
   source('run_cv.R')
   
+  
+  # now group 2
+  source('kiddle_misc_nolink.R') # load helper functions
+  source('eligible_patients_nolink.R')
+  source('copd_ffdf_nolink.R')
+  
+  source('load_variables_nolink.R') 
+  save(copd_eligible,file='../output/proc_data/variables_nolink.RData')
+  
+  source('descriptive_nolink.R')
+  
+  source('cross_validation_unlink.R')
+  
+  
+  
+  
+  
+  
 } else {
   
   # identify eligible patients and their demographics
@@ -71,6 +89,12 @@ if (first_run == TRUE){
   load(file="../output/proc_data/surv_copd.RData")
   
   load(file='../output/proc_data/CV.Rdata')
+  
+  load.ffdf('../output/proc_data/clinical_before_nolink')
+  load.ffdf('../output/proc_data/additional_eligible_nolink') 
+  load.ffdf('../output/proc_data/referral_before_nolink') 
+  load.ffdf('../output/proc_data/test_before_nolink') 
+  load.ffdf('../output/proc_data/therapy_before_nolink') 
   
 }
 
